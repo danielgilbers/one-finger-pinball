@@ -1,0 +1,19 @@
+{
+    "lang": "en",
+    "name": "One Finger Pinball",
+    "description": "One Finger Pinball Game",
+    "start_url": "/",
+    "id": "/",
+    "background_color": "#222",
+    "theme_color": "#222",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "icons/512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ]
+  }
+  

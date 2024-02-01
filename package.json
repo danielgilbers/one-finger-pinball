@@ -1,0 +1,9 @@
+{
+  "name": "one-finger-pinball",
+  "version": "0.0.2",
+  "author": "Daniel Gilbers <danielgilbers@gmail.com>",
+  "packageManager": "yarn@4.0.2",
+  "scripts": {
+    "start": "npx http-server app -c-1"
+  }
+}
