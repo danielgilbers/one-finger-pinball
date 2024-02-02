@@ -1,2 +1,2 @@
 # One Finger Pinball
-This is little Pinball Game using PIXI.js
+This is a little Pinball Game using PIXI.js
