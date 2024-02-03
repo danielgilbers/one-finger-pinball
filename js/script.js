@@ -62,15 +62,13 @@ app.ticker.add((delta) => {
     }
     flipper.rotation += flipper.acceleration * delta;
 
-
-
     // Ball Drag
     ball.velocity.x *= drag;
     ball.velocity.y = ball.velocity.y * drag + gravity;
 
     // Move the ball
-    ball.x += ball.velocity.x;
-    ball.y += ball.velocity.y;
+    ball.x += ball.velocity.x * delta;
+    ball.y += ball.velocity.y * delta;
 
     // Check for collisions with walls
     handleWallCollision(ball, leftWall);
@@ -80,13 +78,13 @@ app.ticker.add((delta) => {
 
     // Check for collisions with walls
     handleFlipperCollision(ball, flipper);
-    
+    /*
     if (flipper.acceleration != 0) {
-        console.log(flipper.getBounds());
+        // console.log(flipper.getBounds());
         dot.x = flipper.getBounds().x;
         dot.y = flipper.getBounds().y;
     }
-
+    */
     if (ball.y + ball.width / 2 > bottomWall.y) {
         ball.y = bottomWall.y - ball.width / 2;
     };
@@ -140,7 +138,7 @@ function createWall(x, y, width, height) {
  */
 function moveFlipper(flipper, acceleration) {
     flipper.acceleration = acceleration;
-    
+
 };
 
 /**
@@ -158,11 +156,45 @@ function handleWallCollision(ball, wall) {
     }
 };
 
+// Helper function to get rotated bounds
+function getRotatedBounds(sprite) {
+    let bounds = sprite.getLocalBounds();
+
+    let x = sprite.x - sprite.width * sprite.pivot.x;
+    let y = sprite.y - sprite.height * sprite.pivot.y;
+
+    let xRotated = Math.cos(sprite.rotation) * x - Math.sin(sprite.rotation) * y;
+    let yRotated = Math.sin(sprite.rotation) * x + Math.cos(sprite.rotation) * y;
+
+    bounds.x = xRotated;
+    bounds.y = yRotated;
+
+    return bounds;
+};
+
 /**
  * Helper function to handle ball-flipper collisions.
  */
 function handleFlipperCollision(ball, flipper) {
+    if (flipper.containsPoint(new PIXI.Point(ball.x, ball.y + ball.height / 2))) {
+        ball.velocity.y *= -1;
+        ball.velocity.y -= flipper.acceleration * 100;
+    }
+    /*
+    let ballBounds = ball.getBounds();
 
+    let flipperBounds = getRotatedBounds(flipper);
+    console.log(flipperBounds);
+
+    if (
+        ballBounds.x + ballBounds.width >= flipperBounds.x &&
+        ballBounds.x <= flipperBounds.x + flipperBounds.width &&
+        ballBounds.y + ballBounds.height >= flipperBounds.y &&
+        ballBounds.y <= flipperBounds.y + flipperBounds.height
+    ) {
+        console.log("Ball touches flipper!");
+    }
+    */
 };
 
 /**
