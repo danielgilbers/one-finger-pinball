@@ -4,6 +4,6 @@
   "author": "Daniel Gilbers <danielgilbers@gmail.com>",
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "start": "npx http-server -c-1"
+    "start": "npx http-server --cors -c-1"
   }
 }
