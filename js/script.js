@@ -19,7 +19,7 @@ let app = new PIXI.Application({ background: '#222', width: playground.width, he
 divPinball.appendChild(app.view);
 
 // speed of flipper
-const movementSpeed = 0.5;
+const movementSpeed = 0.1;
 
 const gravity = 0.05;
 const drag = 0.99;
@@ -43,8 +43,8 @@ let bottomWall = createWall(0, playground.height - wallThickness, playground.wid
 app.stage.addChild(leftWall, rightWall, topWall, bottomWall);
 
 // Input events
-document.addEventListener('pointerdown', () => moveFlipper(flipper, 0.3));
-document.addEventListener('pointerup', () => moveFlipper(flipper, -0.3));
+document.addEventListener('pointerdown', () => moveFlipper(flipper, movementSpeed));
+document.addEventListener('pointerup', () => moveFlipper(flipper, -movementSpeed));
 
 // Animation ticker
 app.ticker.add((delta) => {

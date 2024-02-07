@@ -3,8 +3,9 @@
  */
 export function handleFlipperCollision(ball, flipper) {
     if (flipper.containsPoint(new PIXI.Point(ball.x, ball.y + ball.height / 2))) {
+        ball.y -= 1;
         ball.velocity.y *= -1;
-        ball.velocity.y -= flipper.acceleration * 100;
+        ball.velocity.y -= flipper.acceleration * 200;
     }
     /*
     let ballBounds = ball.getBounds();
@@ -43,5 +44,4 @@ export function handleWallCollision(ball, wall) {
  */
 export function moveFlipper(flipper, acceleration) {
     flipper.acceleration = acceleration;
-
 };
