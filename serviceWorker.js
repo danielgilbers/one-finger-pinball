@@ -3,6 +3,8 @@ const ASSETS = [
   '/',
   '/index.html',
   '/favicon.ico',
+  '/js/builder.js',
+  '/js/physics.js',
   '/js/script.js',
   '/css/style.css'
 ];
