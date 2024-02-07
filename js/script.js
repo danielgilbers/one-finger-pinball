@@ -31,10 +31,10 @@ app.stage.addChild(flipper);
 // Ball
 let ball = createBall(playground.width / 2, playground.height / 2, playground.width * 0.02);
 app.stage.addChild(ball);
-
+/*
 let dot = createBall(playground.width / 2, playground.height / 2, 1);
 app.stage.addChild(dot);
-
+*/
 // Walls
 let wallThickness = playground.width * 0.015;
 let leftWall = createWall(0, 0, wallThickness, playground.height);
