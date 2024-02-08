@@ -1,12 +1,12 @@
 const CACHE_NAME = `one-finger-pinball`;
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/favicon.ico',
-  '/js/builder.js',
-  '/js/physics.js',
-  '/js/script.js',
-  '/css/style.css'
+  '/one-finger-pinball/',
+  '/one-finger-pinball/index.html',
+  '/one-finger-pinball/favicon.ico',
+  '/one-finger-pinball/js/builder.js',
+  '/one-finger-pinball/js/physics.js',
+  '/one-finger-pinball/js/script.js',
+  '/one-finger-pinball/css/style.css'
 ];
 
 // Use the install event to pre-cache all initial resources.

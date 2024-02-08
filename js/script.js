@@ -5,7 +5,7 @@ import { createBall, createFlipper, createWall } from "./builder.js";
  * Service Worker initialization
  */
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/serviceWorker.js', { scope: '/' });
+    navigator.serviceWorker.register('/one-finger-pinball/serviceWorker.js', { scope: '/one-finger-pinball/' });
 };
 
 // get container
