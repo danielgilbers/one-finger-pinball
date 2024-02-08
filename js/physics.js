@@ -1,13 +1,15 @@
+import * as PIXI from 'https://pixijs.download/release/pixi.js'
+
 /**
  * Helper function to handle ball-flipper collisions.
  */
-export function handleFlipperCollision(ball, flipper) {
-    if (flipper.containsPoint(new PIXI.Point(ball.x, ball.y + ball.height / 2))) {
-        ball.y -= 1;
-        ball.velocity.y *= -1;
-        ball.velocity.y -= flipper.acceleration * 200;
-    }
-    /*
+export function handleFlipperCollision (ball, flipper) {
+  if (flipper.containsPoint(new PIXI.Point(ball.x, ball.y + ball.height / 2))) {
+    ball.y -= 1
+    ball.velocity.y *= -1
+    ball.velocity.y -= flipper.acceleration * 200
+  }
+  /*
     let ballBounds = ball.getBounds();
 
     let flipperBounds = getRotatedBounds(flipper);
@@ -27,21 +29,21 @@ export function handleFlipperCollision(ball, flipper) {
 /**
  * Helper function to handle ball-wall collisions.
  */
-export function handleWallCollision(ball, wall) {
-    if (ball.x - ball.width / 2 < wall.x + wall.width && // linke Ballseite < rechte Wandseite & rechte Ballseite > linke Wandseite -> Ball auf Wand
+export function handleWallCollision (ball, wall) {
+  if (ball.x - ball.width / 2 < wall.x + wall.width && // linke Ballseite < rechte Wandseite & rechte Ballseite > linke Wandseite -> Ball auf Wand
         ball.x + ball.width / 2 > wall.x) {
-        // Invert velocity to simulate bouncing off the wall
-        ball.velocity.x *= -1;
-    }
-    if (ball.y - ball.height / 2 < wall.y + wall.height &&
+    // Invert velocity to simulate bouncing off the wall
+    ball.velocity.x *= -1
+  }
+  if (ball.y - ball.height / 2 < wall.y + wall.height &&
         ball.y + ball.height / 2 > wall.y) {
-        ball.velocity.y *= -1;
-    }
+    ball.velocity.y *= -1
+  }
 };
 
 /**
  * Helper function to move the flipper.
  */
-export function moveFlipper(flipper, acceleration) {
-    flipper.acceleration = acceleration;
+export function moveFlipper (flipper, acceleration) {
+  flipper.acceleration = acceleration
 };

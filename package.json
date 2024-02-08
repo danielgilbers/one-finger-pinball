@@ -1,9 +1,14 @@
 {
   "name": "one-finger-pinball",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Daniel Gilbers <danielgilbers@gmail.com>",
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.1.0",
   "scripts": {
+    "fix": "npx standard --fix | snazzy",
     "start": "npx http-server --cors -c-1"
+  },
+  "devDependencies": {
+    "snazzy": "^9.0.0",
+    "standard": "^17.1.0"
   }
 }

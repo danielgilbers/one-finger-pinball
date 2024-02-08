@@ -1,4 +1,5 @@
-const CACHE_NAME = `one-finger-pinball`;
+/* eslint-env serviceworker */
+const CACHE_NAME = 'one-finger-pinball'
 const ASSETS = [
   '/one-finger-pinball/',
   '/one-finger-pinball/index.html',
@@ -7,15 +8,15 @@ const ASSETS = [
   '/one-finger-pinball/js/physics.js',
   '/one-finger-pinball/js/script.js',
   '/one-finger-pinball/css/style.css'
-];
+]
 
 // Use the install event to pre-cache all initial resources.
 self.addEventListener('install', installEvent => {
   installEvent.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    cache.addAll(ASSETS);
-  })());
-});
+    const cache = await caches.open(CACHE_NAME)
+    cache.addAll(ASSETS)
+  })())
+})
 
 self.addEventListener('fetch', fetchEvent => {
   /*
@@ -41,25 +42,23 @@ self.addEventListener('fetch', fetchEvent => {
   );
   */
   fetchEvent.respondWith((async () => {
-    const cache = await caches.open(CACHE_NAME);
+    const cache = await caches.open(CACHE_NAME)
 
     // Get the resource from the cache.
-    const cachedResponse = await cache.match(fetchEvent.request);
+    const cachedResponse = await cache.match(fetchEvent.request)
     if (cachedResponse) {
-      return cachedResponse;
+      return cachedResponse
     } else {
       try {
         // If the resource was not in the cache, try the network.
-        const fetchResponse = await fetch(fetchEvent.request);
+        const fetchResponse = await fetch(fetchEvent.request)
 
         // Save the resource in the cache and return it.
-        cache.put(fetchEvent.request, fetchResponse.clone());
-        return fetchResponse;
+        cache.put(fetchEvent.request, fetchResponse.clone())
+        return fetchResponse
       } catch (e) {
         // The network failed.
       }
     }
-  })());
-
-
-});
+  })())
+})
